@@ -1,7 +1,12 @@
 {
     "name": "Jupyter Lab Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/python:3.10",
-    "features": {},
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "features":  {
+      "ghcr.io/devcontainers/features/python:1": {
+        "version": "latest",
+        "installJupyterlab": true
+      }
+    },
     "customizations": {
       "vscode": {
         "extensions": ["ms-python.python"],
@@ -10,7 +15,9 @@
         }
       }
     },
-    "postCreateCommand": "pip install jupyterlab",
-    "forwardPorts": [8888],
-    // "postAttachCommand": "nohup ~/.local/bin/jupyter lab --ip=0.0.0.0 --no-browser &"
+    "remoteUser": "root",
+    "containerUser": "vscode"
+    // Upon start, run
+    // jupyter lab --ip=0.0.0.0 --no-browser
+    // And connect to it in vscode (Select Kernel -> Existing Environment ->)
   }
