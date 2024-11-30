@@ -13,17 +13,11 @@
           "ms-python.python",
           "ms-toolsai.jupyter",
           "github.copilot"
-        ],
-        //"settings": {
-        //  "python.pythonPath": "/usr/local/bin/python"
-        //}
+        ]
       }
     },
     "remoteUser": "root",
     "containerUser": "vscode",
     "forwardPorts": [8888],
-    "postAttachCommand": "su vscode -c 'jupyter lab --ip=0.0.0.0 --no-browser'"
-    // Upon start, run
-    // jupyter lab --ip=0.0.0.0 --no-browser
-    // And connect to it in vscode (Select Kernel -> Existing Environment ->)
+    "postAttachCommand": "nohup su vscode -c 'jupyter lab --ip=0.0.0.0 --no-browser' &"
   }
